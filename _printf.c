@@ -14,20 +14,18 @@
 int _printf(const char *format, ...)
 {
 	int *ptr_format;
-	enum symbol {c = 99, s = 115, % = 37};
 	int total = 0;
+	int *ptr;
+	int i;
 
 	ptr_format = malloc(sizeof(format));
 	if (ptr_format == NULL)
 		return (1);
 
-	va_start(ptr_format, format);
+	ptr = &total;
 
-	for (i = 0; i < ptr_format; i++)
+	for (i = 0; ptr_format[i] != '\0'; i++)
 	{
-		if (ptr_format[i] == '\0')
-			break;
-
 		if (ptr_format[i] == 37)
 			i = i + 2;
 		else
@@ -35,7 +33,7 @@ int _printf(const char *format, ...)
 	}
 
 
-	return (write(1, total, sizeof(total)));
+	return (write(1, ptr, sizeof(total)));
 }
 
 
