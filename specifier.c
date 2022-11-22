@@ -26,7 +26,7 @@ void specifier(char c, va_list ap)
 
 	if (c == 's')
 	{
-		a = malloc(sizeof(va_arg(ap, int)));
+		a = va_arg(ap, int);
 
 		for (i = 0; a[i] != '\0'; i++)
 			_putchar(a[i]);
