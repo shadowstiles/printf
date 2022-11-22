@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				specifier(format[i + 1], arglist);
-				i += 2;
+				i++;
 			}
 		}	
 		else
