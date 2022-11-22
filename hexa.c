@@ -3,40 +3,43 @@
 /**
  * hexa - Convert number tohexadecimal (base 16)
  * @n: The number
+ * @asc: ASCII number for A || a
  * Return: Nothing
  */
 
-void hexa(long n, char c)
+void hexa(long n, int asc)
 {
-	if (n < 16)
-		_putchar(n + '0');
-
-	if (n >= 16)
-		binary(n / 16);
+	int value;
 
 	switch (n % 16)
 	{
 		case 10:
-			value = a;
+			value = asc;
 			break;
 		case 11:
-			value = b;
+			value = asc + 1;
 			break;
 		case 12:
-			value = c;
+			value = asc + 2;
 			break;
 		case 13:
-			value = d;
+			value = asc + 3;
 			break;
 		case 14: 
-			value = e;
+			value = asc + 4;
 			break;
 		case 15:
-			value = f;
+			value = asc + 5;
 			break;
 		default:
 			value = (n % 16);
 	}
+
+	if (n < 16)
+		_putchar((n % 16) < 10 ? value + '0' : value);
+
+	if (n >= 16)
+		hexa((n / 16), asc);
 
 	_putchar((n % 16) < 10 ? value + '0' : value);
 }
