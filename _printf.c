@@ -16,6 +16,9 @@ int _printf(const char *format, ...)
 	int i;
 	va_list arglist;
 
+	if (format == NULL)
+		return;
+
 	va_start(arglist, format);
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -26,17 +29,14 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 37)
 				_putchar(format[i + 1]);
 			else
-			{
 				specifier(format[i + 1], arglist);
-				i++;
-			}
+			i++;
 		}
 		else
 			_putchar(format[i]);
 	}
 
 	va_end(arglist);
-	_putchar('\n');
 
 	return (0);
-}
+}i

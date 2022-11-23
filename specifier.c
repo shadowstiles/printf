@@ -28,6 +28,8 @@ void specifier(char c, va_list ap)
 	if (c == 's')
 	{
 		a = va_arg(ap, char *);
+		if (a == 0)
+			a = "(null)";
 
 		for (i = 0; a[i] != '\0'; i++)
 			_putchar(a[i]);
@@ -44,11 +46,4 @@ void specifier(char c, va_list ap)
 
 	if (c == 'X')
 		hexa(va_arg(ap, long), 65);
-
-	if (c == 'p')
-	{
-		b = va_arg(ap, long);
-		d = (long)&b;
-		hexa(d, 97);
-	}
 }
