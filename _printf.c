@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				specifier(format[i + 1], arglist);
 				i++;
 			}
-		}	
+		}
 		else
 			_putchar(format[i]);
 	}
