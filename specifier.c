@@ -13,7 +13,6 @@ void specifier(char c, va_list ap)
 {
 	char *a;
 	long b;
-	long d;
 	int i;
 
 	if (c == 'd' || c == 'i')

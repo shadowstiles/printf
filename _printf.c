@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	va_list arglist;
 
 	if (format == NULL)
-		return;
+		return (0);
 
 	va_start(arglist, format);
 
@@ -39,4 +39,4 @@ int _printf(const char *format, ...)
 	va_end(arglist);
 
 	return (0);
-}i
+}
