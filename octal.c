@@ -12,7 +12,7 @@ void octal(long n)
 		_putchar(n + '0');
 
 	if (n >= 8)
-		binary(n / 8);
+		octal(n / 8);
 
 	_putchar((n % 8) + '0');
 }

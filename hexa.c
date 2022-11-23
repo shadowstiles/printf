@@ -10,8 +10,14 @@
 void hexa(long n, int asc)
 {
 	int value;
+	int result;
 
-	switch (n % 16)
+	if (n < 16)
+		result = n;
+	else
+		result = n % 16;
+
+	switch (result)
 	{
 		case 10:
 			value = asc;
@@ -32,14 +38,18 @@ void hexa(long n, int asc)
 			value = asc + 5;
 			break;
 		default:
-			value = (n % 16);
+			value = result;
 	}
 
 	if (n < 16)
-		_putchar((n % 16) < 10 ? value + '0' : value);
+	{
+		_putchar(result < 10 ? value + '0' : value);
+		_putchar(0 + '0');
+		_putchar(asc + 23);
+	}
 
 	if (n >= 16)
 		hexa((n / 16), asc);
 
-	_putchar((n % 16) < 10 ? value + '0' : value);
+	_putchar(result < 10 ? value + '0' : value);
 }

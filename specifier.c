@@ -31,4 +31,19 @@ void specifier(char c, va_list ap)
 		for (i = 0; a[i] != '\0'; i++)
 			_putchar(a[i]);
 	}
+
+	if (c == 'b')
+		binary(va_arg(ap, int));
+
+	if (c == 'o')
+		octal(va_arg(ap, int));
+
+	if (c == 'x')
+		hexa(va_arg(ap, int), 97);
+
+	if (c == 'X')
+		hexa(va_arg(ap, int), 65);
+
+	if (c == 'p')
+		hexa(&va_arg(ap, int), 97);
 }
