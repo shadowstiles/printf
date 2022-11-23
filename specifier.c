@@ -12,12 +12,13 @@
 void specifier(char c, va_list ap)
 {
 	char *a;
-	int b;
+	long b;
+	long d;
 	int i;
 
 	if (c == 'd' || c == 'i')
 	{
-		b = va_arg(ap, int);
+		b = va_arg(ap, long);
 		number(b);
 	}
 
@@ -33,17 +34,21 @@ void specifier(char c, va_list ap)
 	}
 
 	if (c == 'b')
-		binary(va_arg(ap, int));
+		binary(va_arg(ap, long));
 
 	if (c == 'o')
-		octal(va_arg(ap, int));
+		octal(va_arg(ap, long));
 
 	if (c == 'x')
-		hexa(va_arg(ap, int), 97);
+		hexa(va_arg(ap, long), 97);
 
 	if (c == 'X')
-		hexa(va_arg(ap, int), 65);
+		hexa(va_arg(ap, long), 65);
 
 	if (c == 'p')
-		hexa(&va_arg(ap, int), 97);
+	{
+		b = va_arg(ap, long);
+		d = (long)&b;
+		hexa(d, 97);
+	}
 }
