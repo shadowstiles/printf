@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(arglist);
-	_putchar(\n);
+	_putchar('\n');
 
 	return (0);
 }
