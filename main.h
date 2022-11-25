@@ -9,5 +9,6 @@ void hexa(long n, int asc);
 void specifier(char c, va_list ap);
 void binary(long n);
 void octal(long n);
+void handleString(va_list ap);
 
 #endif
