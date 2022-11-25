@@ -14,26 +14,29 @@
 int _printf(const char *format, ...)
 {
 	int i;
+	const char *ptr;
 	va_list arglist;
-
-	if (format == NULL)
+	
+	ptr = malloc(sizeof(va_list));
+	if (ptr = NULL || format == NULL)
 		return (0);
-
+	
+	ptr = format;
 	va_start(arglist, format);
 
-	for (i = 0; format[i] != '\0'; i++)
+	for (i = 0; ptr[i] != '\0'; i++)
 	{
 
-		if (format[i] == 37)
+		if (ptr[i] == 37)
 		{
-			if (format[i + 1] == 37)
-				_putchar(format[i + 1]);
+			if (ptr[i] == '%' && ptr[i + 1] != ' ')
+				_putchar(ptr[i + 1]);
 			else
-				specifier(format[i + 1], arglist);
+				specifier(ptr[i + 1], arglist);
 			i++;
 		}
 		else
-			_putchar(format[i]);
+			_putchar(ptr[i]);
 	}
 
 	va_end(arglist);
