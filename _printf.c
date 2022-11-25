@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	va_list arglist;
 	
 	ptr = malloc(sizeof(va_list));
-	if (ptr = NULL || format == NULL)
+	if (ptr == NULL || format == NULL)
 		return (0);
 	
 	ptr = format;
