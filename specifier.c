@@ -12,8 +12,7 @@
 void specifier(char c, va_list ap)
 {
 	long b;
-	int i;
-	
+
 	switch (c)
 	{
 		case 'd':
@@ -42,17 +41,24 @@ void specifier(char c, va_list ap)
 		default:
 			_putchar('%');
 			_putchar(c);
-    }
+	}
 }
+
+/**
+ * handleString - function to print a string
+ * @ap: va_list
+ * Return: Nothing
+ */
 
 void handleString(va_list ap)
 {
 	char *a;
-	
+	int i;
+
 	a = va_arg(ap, char *);
 	if (a == 0)
 		a = "(null)";
-	
+
 	for (i = 0; a[i] != '\0'; i++)
 		_putchar(a[i]);
 }
