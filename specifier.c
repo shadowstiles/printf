@@ -15,9 +15,8 @@ int specifier(char c, va_list ap)
 
 	switch (c)
 	{
-		case 'd':
-		case 'i':
-			count = count + number(va_arg(ap, uintmax_t));
+		case 'd': case 'i':
+			count = count + number(va_arg(ap, long));
 			break;
 		case 'c':
 			_putchar(va_arg(ap, int));
@@ -50,23 +49,22 @@ int specifier(char c, va_list ap)
 		default:
 			_putchar('%');
 			_putchar(c);
-			count += 2;
-	}
+			count += 2; }
 	return (count);
 }
 
 int pointerAddress(va_list ap)
 {
-	char null[] = "(null)";
+	char null[7] = "(null)";
 	int i;
 	int count = 0;
 	uintmax_t ptr;
-	
+
 	ptr = va_arg(ap, uintmax_t);
-	
+
 	if (ptr == '\0')
 	{
-		for (i = 0; i < sizeof(null); i++)
+		for (i = 0; i < 7; i++)
 		{
 			_putchar(null[i]);
 			count++;
@@ -79,6 +77,6 @@ int pointerAddress(va_list ap)
 		count = count + hexa(ptr, 97);
 		count += 2;
 	}
-	
+
 	return (count);
 }

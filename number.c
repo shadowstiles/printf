@@ -6,7 +6,7 @@
  * Return: Number of cgaracter printed
  */
 
-int number(uintmax_t n)
+int number(long n)
 {
 	int count = 0;
 

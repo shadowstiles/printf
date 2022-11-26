@@ -5,7 +5,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int number(uintmax_t n);
+int number(long n);
 int hexa(uintmax_t n, int asc);
 int specifier(char c, va_list ap);
 int binary(uintmax_t n);
