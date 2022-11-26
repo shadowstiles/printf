@@ -1,16 +1,18 @@
 #ifndef MAIN_H
 #define MAIN_H
 #include <stdarg.h>
+#include <inttypes.h>
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int number(long n);
-int hexa(long n, int asc);
+int number(uintmax_t n);
+int hexa(uintmax_t n, int asc);
 int specifier(char c, va_list ap);
-int binary(long n);
-int octal(long n);
+int binary(uintmax_t n);
+int octal(uintmax_t n);
 int handleString(va_list ap);
 int unsignedNumber(unsigned int n);
 int specialString(va_list ap);
+int pointerAddress(va_list ap);
 
 #endif
