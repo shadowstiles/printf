@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (format[i + 1] == '\0')
-					count = 0;
+					return (0);
 				else
 					count = count + specifier(format[i + 1], arglist);
 			}
