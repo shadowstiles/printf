@@ -53,6 +53,12 @@ int specifier(char c, va_list ap)
 	return (count);
 }
 
+/**
+ * pointerAddress - prints address pointer in hexadecimal format
+ * @ap: array argument
+ * Return: Number of character printed
+ */
+
 int pointerAddress(va_list ap)
 {
 	char null[7] = "(null)";
