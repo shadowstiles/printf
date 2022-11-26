@@ -4,18 +4,13 @@
  * hexa - Convert number tohexadecimal (base 16)
  * @n: The number
  * @asc: ASCII number for A || a
- * Return: Nothing
+ * Return: Number of characters printed
  */
 
-void hexa(long n, int asc)
+int hexa(long n, int asc)
 {
 	int value;
-	int result;
-
-	if (n < 16)
-		result = n;
-	else
-		result = n % 16;
+	int count = 0;
 
 	switch (result)
 	{
@@ -31,7 +26,7 @@ void hexa(long n, int asc)
 		case 13:
 			value = asc + 3;
 			break;
-		case 14: 
+		case 14:
 			value = asc + 4;
 			break;
 		case 15:
@@ -41,15 +36,11 @@ void hexa(long n, int asc)
 			value = result;
 	}
 
-	if (n < 16)
-	{
-		_putchar(result < 10 ? value + '0' : value);
-		_putchar(0 + '0');
-		_putchar(asc + 23);
-	}
-
 	if (n >= 16)
-		hexa((n / 16), asc);
+		count = count + hexa((n / 16), asc);
 
-	_putchar(result < 10 ? value + '0' : value);
+	_putchar((n % 16) < 10 ? value + '0' : value);
+	count++;
+
+	return (count);
 }

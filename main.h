@@ -4,11 +4,11 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-void number(long n);
-void hexa(long n, int asc);
-void specifier(char c, va_list ap);
-void binary(long n);
-void octal(long n);
-void handleString(va_list ap);
+int number(long n);
+int hexa(long n, int asc);
+int specifier(char c, va_list ap);
+int binary(long n);
+int octal(long n);
+int handleString(va_list ap);
 
 #endif

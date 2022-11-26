@@ -6,13 +6,15 @@
  * Return: binary number
  */
 
-void binary(long n)
+int binary(long n)
 {
-	if (n < 2)
-		_putchar(n + '0');
+	int count = 0;
 
 	if (n >= 2)
-		binary(n / 2);
+		count = count + binary(n / 2);
 
 	_putchar((n % 2) + '0');
+	count++;
+
+	return (count);
 }

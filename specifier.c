@@ -9,39 +9,44 @@
  * Return: Nothing
  */
 
-void specifier(char c, va_list ap)
+int specifier(char c, va_list ap)
 {
 	long b;
+	int count = 0;
 
 	switch (c)
 	{
 		case 'd':
 		case 'i':
 			b = va_arg(ap, int);
-			number(b);
+			count = count + number(b);
 			break;
 		case 'c':
 			_putchar(va_arg(ap, int));
+			count++;
 			break;
 		case 's':
-			handleString(ap);
+			count = count + handleString(ap);
 			break;
 		case 'b':
-			binary(va_arg(ap, long));
+			count = count + binary(va_arg(ap, long));
 			break;
 		case 'o':
-			octal(va_arg(ap, long));
+			count = count + octal(va_arg(ap, long));
 			break;
 		case 'x':
-			hexa(va_arg(ap, long), 97);
+			count = cpunt + hexa(va_arg(ap, long), 97);
 			break;
 		case 'X':
-			hexa(va_arg(ap, long), 65);
+			count = count + hexa(va_arg(ap, long), 65);
 			break;
 		default:
 			_putchar('%');
 			_putchar(c);
+			count += 2;
 	}
+
+	return (count);
 }
 
 /**
@@ -50,15 +55,21 @@ void specifier(char c, va_list ap)
  * Return: Nothing
  */
 
-void handleString(va_list ap)
+int handleString(va_list ap)
 {
 	char *a;
 	int i;
+	int count = 0;
 
 	a = va_arg(ap, char *);
 	if (a == 0)
 		a = "(null)";
 
 	for (i = 0; a[i] != '\0'; i++)
+	{
 		_putchar(a[i]);
+		count++;
+	}
+
+	return (count);
 }

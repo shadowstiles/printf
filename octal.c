@@ -6,13 +6,15 @@
  * Return: Nothing
  */
 
-void octal(long n)
+int octal(long n)
 {
-	if (n < 8)
-		_putchar(n + '0');
+	int count = 0;
 
 	if (n >= 8)
-		octal(n / 8);
+		count = count + octal(n / 8);
 
 	_putchar((n % 8) + '0');
+	count++;
+
+	return (count);
 }

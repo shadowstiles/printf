@@ -14,32 +14,38 @@
 int _printf(const char *format, ...)
 {
 	int i;
-	const char *ptr;
+	int count = 0;
 	va_list arglist;
 
-	ptr = malloc(sizeof(va_list));
-	if (ptr == NULL || format == NULL)
-		return (0);
+	if (format == NULL)
+		return (-1);
 
-	ptr = format;
 	va_start(arglist, format);
 
-	for (i = 0; ptr[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 
-		if (ptr[i] == 37)
+		if (format[i] == 37)
 		{
-			if (ptr[i] == '%' && ptr[i + 1] != ' ')
-				_putchar(ptr[i + 1]);
+			if (format[i] == '%' && format[i + 1] != ' ')
+			{
+				_putchar(format[i + 1]);
+				count++;
+			}
 			else
-				specifier(ptr[i + 1], arglist);
+			{
+				count = count + specifier(format[i + 1], arglist);
+			}
 			i++;
 		}
 		else
-			_putchar(ptr[i]);
+		{
+			_putchar(format[i]);
+			count++;
+		}
 	}
 
 	va_end(arglist);
 
-	return (0);
+	return (count);
 }
