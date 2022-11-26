@@ -73,7 +73,7 @@ int pointerAddress(va_list ap)
 		for (i = 0; i < 6; i++)
 		{
 			_putchar(null[i]);
-			count++;
+			count = 0;
 		}
 	}
 	else
