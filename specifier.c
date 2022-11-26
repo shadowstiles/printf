@@ -15,7 +15,7 @@ int specifier(char c, va_list ap)
 
 	switch (c)
 	{
-		case 'd': 
+		case 'd':
 		case 'i':
 			count = count + number(va_arg(ap, long));
 			break;
