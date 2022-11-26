@@ -6,7 +6,7 @@
  * Return: Nothing
  */
 
-int octal(long n)
+int octal(uintmax_t n)
 {
 	int count = 0;
 
