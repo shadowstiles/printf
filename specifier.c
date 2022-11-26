@@ -61,7 +61,7 @@ int specifier(char c, va_list ap)
 
 int pointerAddress(va_list ap)
 {
-	char null[7] = "(null)";
+	char null[6] = "(nil)";
 	int i;
 	int count = 0;
 	uintmax_t ptr;
@@ -70,7 +70,7 @@ int pointerAddress(va_list ap)
 
 	if (ptr == '\0')
 	{
-		for (i = 0; i < 7; i++)
+		for (i = 0; i < 6; i++)
 		{
 			_putchar(null[i]);
 			count++;
