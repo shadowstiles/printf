@@ -12,7 +12,7 @@ int hexa(long n, int asc)
 	int value;
 	int count = 0;
 
-	switch (result)
+	switch (n % 16)
 	{
 		case 10:
 			value = asc;
@@ -33,7 +33,7 @@ int hexa(long n, int asc)
 			value = asc + 5;
 			break;
 		default:
-			value = result;
+			value = n % 16;
 	}
 
 	if (n >= 16)

@@ -35,7 +35,7 @@ int specifier(char c, va_list ap)
 			count = count + octal(va_arg(ap, long));
 			break;
 		case 'x':
-			count = cpunt + hexa(va_arg(ap, long), 97);
+			count = count + hexa(va_arg(ap, long), 97);
 			break;
 		case 'X':
 			count = count + hexa(va_arg(ap, long), 65);
