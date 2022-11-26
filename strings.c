@@ -53,10 +53,10 @@ int specialString(va_list ap)
 			{
 				_putchar(0 + '0');
 				count++;
-				count = count + hexa(va_arg(ap, long), 97);
+				count = count + hexa(a[i], 65);
 			}
 			else
-				count = count + hexa(va_arg(ap, long), 97);
+				count = count + hexa(a[i], 65);
 
 			count += 2;
 		}
