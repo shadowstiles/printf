@@ -17,7 +17,7 @@ int specifier(char c, va_list ap)
 	{
 		case 'd':
 		case 'i':
-			count = count + number(va_arg(ap, long));
+			count = count + number(va_arg(ap, uintmax_t));
 			break;
 		case 'c':
 			_putchar(va_arg(ap, int));
@@ -27,16 +27,16 @@ int specifier(char c, va_list ap)
 			count = count + handleString(ap);
 			break;
 		case 'b':
-			count = count + binary(va_arg(ap, long));
+			count = count + binary(va_arg(ap, uintmax_t));
 			break;
 		case 'o':
-			count = count + octal(va_arg(ap, long));
+			count = count + octal(va_arg(ap, uintmax_t));
 			break;
 		case 'x':
-			count = count + hexa(va_arg(ap, long), 97);
+			count = count + hexa(va_arg(ap, uintmax_t), 97);
 			break;
 		case 'X':
-			count = count + hexa(va_arg(ap, long), 65);
+			count = count + hexa(va_arg(ap, uintmax_t), 65);
 			break;
 		case 'u':
 			count = count + unsignedNumber(va_arg(ap, unsigned int));
@@ -44,10 +44,41 @@ int specifier(char c, va_list ap)
 		case 'S':
 			count = count + specialString(ap);
 			break;
+		case 'p':
+			count = count + pointerAddress(ap);
+			break;
 		default:
 			_putchar('%');
 			_putchar(c);
 			count += 2;
 	}
+	return (count);
+}
+
+int pointerAddress(va_list ap)
+{
+	char null[] = "(null)";
+	int i;
+	int count = 0;
+	uintmax_t ptr;
+	
+	ptr = va_arg(ap, uintmax_t);
+	
+	if (ptr == '\0')
+	{
+		for (i = 0; i < sizeof(null); i++)
+		{
+			_putchar(null[i]);
+			count++;
+		}
+	}
+	else
+	{
+		_putchar(0 + '0');
+		_putchar('x');
+		count = count + hexa(ptr, 97);
+		count += 2;
+	}
+	
 	return (count);
 }
