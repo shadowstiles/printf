@@ -15,12 +15,12 @@ int specifier(char c, va_list ap)
 
 	switch (c)
 	{
-		case 'd': case 'i':
+		case 'd': 
+		case 'i':
 			count = count + number(va_arg(ap, long));
 			break;
 		case 'c':
-			_putchar(va_arg(ap, int));
-			count++;
+			count = count + character(ap);
 			break;
 		case 's':
 			count = count + handleString(ap);
@@ -83,6 +83,22 @@ int pointerAddress(va_list ap)
 		count = count + hexa(ptr, 97);
 		count += 2;
 	}
+
+	return (count);
+}
+
+/**
+ * character - prints character to the screen
+ * @ap: array argument
+ * Return: Number of character printed
+ */
+
+int character(va_list ap)
+{
+	int count = 0;
+
+	_putchar(va_arg(ap, int));
+	count++;
 
 	return (count);
 }
