@@ -25,9 +25,9 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 
-		if (format[i] == 37)
+		if (format[i] == '%' && format[i + 1] != ' ')
 		{
-			if (format[i] == '%' && format[i + 1] != ' ')
+			if (format[i + 1] != '%')
 			{
 				_putchar(format[i + 1]);
 				count++;
