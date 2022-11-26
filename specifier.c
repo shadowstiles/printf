@@ -26,10 +26,10 @@ int specifier(char c, va_list ap)
 			count = count + handleString(ap);
 			break;
 		case 'b':
-			count = count + binary(va_arg(ap, long));
+			count = count + binary(va_arg(ap, uintmax_t));
 			break;
 		case 'o':
-			count = count + octal(va_arg(ap, long));
+			count = count + octal(va_arg(ap, uintmax_t));
 			break;
 		case 'x':
 			count = count + hexa(va_arg(ap, uintmax_t), 97);
