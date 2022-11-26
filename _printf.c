@@ -13,7 +13,7 @@
 
 int _printf(const char *format, ...)
 {
-	int i, result;
+	int i;
 	int count = 0;
 	va_list arglist;
 
@@ -35,9 +35,9 @@ int _printf(const char *format, ...)
 			else
 			{
 				if (format[i + 1] == '\0')
-					return (0);
-				result = specifier(format[i + 1], arglist);
-				count = count + result;
+					count = 0;
+				else
+					count = count + specifier(format[i + 1], arglist);
 			}
 			i++;
 		}
