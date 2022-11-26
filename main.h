@@ -10,6 +10,7 @@ int specifier(char c, va_list ap);
 int binary(long n);
 int octal(long n);
 int handleString(va_list ap);
-int unsignedNumber(unsigned n);
+int unsignedNumber(unsigned int n);
+int specialString(va_list ap);
 
 #endif

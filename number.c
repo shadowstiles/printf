@@ -32,7 +32,7 @@ int number(long n)
  * Return: Number of cgaracter printed
  */
 
-int unsignedNumber(unsigned n)
+int unsignedNumber(unsigned int n)
 {
 	int count = 0;
 
