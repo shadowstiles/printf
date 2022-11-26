@@ -40,6 +40,12 @@ int specifier(char c, va_list ap)
 		case 'X':
 			count = count + hexa(va_arg(ap, long), 65);
 			break;
+		case 'u':
+			count = count + unsignedNumber(var_arg(ap, unsigned));
+			break;
+		case 'S':
+			count = count + specialString(ap);
+			break;
 		default:
 			_putchar('%');
 			_putchar(c);
@@ -69,6 +75,42 @@ int handleString(va_list ap)
 	{
 		_putchar(a[i]);
 		count++;
+	}
+
+	return (count);
+}
+
+/**
+ * specialString - function to print a string
+ * @ap: va_list
+ * Return: Nothing
+ */
+
+int specialString(va_list ap)
+{
+	char *a;
+	int i;
+	int count = 0;
+
+	a = va_arg(ap, char *);
+	if (a == 0)
+		a = "(null)";
+
+	for (i = 0; a[i] != '\0'; i++)
+	{
+		if ((0 < a[i] < 32) || a[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			if (a[i] < 16)
+			{
+				_putchar(0 + '0');
+				count++;
+				count = count + hexa(va_arg(ap, long), 97);
+			}
+			else
+				count = count + hexa(va_arg(ap, long), 97);
+		}
 	}
 
 	return (count);
