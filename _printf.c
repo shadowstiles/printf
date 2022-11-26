@@ -34,6 +34,8 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
+				if (format[i + 1] == NULL)
+					return (0);
 				result = specifier(format[i + 1], arglist);
 				count = count + result;
 			}
