@@ -3,7 +3,7 @@
 /**
  * number - prints number using putchar
  * @n: the number to print
- * Return: nothing
+ * Return: Number of cgaracter printed
  */
 
 int number(long n)
@@ -16,6 +16,25 @@ int number(long n)
 		n = -n;
 		count++;
 	}
+
+	if (n / 10)
+		count = count + number(n / 10);
+
+	_putchar((n % 10) + '0');
+	count++;
+
+	return (count);
+}
+
+/**
+ * unsignedNumber - prints number using putchar
+ * @n: the number to print
+ * Return: Number of cgaracter printed
+ */
+
+int unsignedNumber(unsigned n)
+{
+	int count = 0;
 
 	if (n / 10)
 		count = count + number(n / 10);
