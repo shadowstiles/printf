@@ -14,5 +14,6 @@ int handleString(va_list ap);
 int unsignedNumber(unsigned int n);
 int specialString(va_list ap);
 int pointerAddress(va_list ap);
+int character(va_list ap);
 
 #endif
