@@ -19,12 +19,6 @@ int specifier(char c, va_list ap)
 		case 'i':
 			count = count + number(va_arg(ap, long));
 			break;
-		case 'c':
-			count = count + character(ap);
-			break;
-		case 's':
-			count = count + handleString(ap);
-			break;
 		case 'b':
 			count = count + binary(va_arg(ap, uintmax_t));
 			break;
@@ -40,65 +34,9 @@ int specifier(char c, va_list ap)
 		case 'u':
 			count = count + unsignedNumber(va_arg(ap, unsigned int));
 			break;
-		case 'S':
-			count = count + specialString(ap);
-			break;
-		case 'p':
-			count = count + pointerAddress(ap);
-			break;
 		default:
 			_putchar('%');
 			_putchar(c);
 			count += 2; }
-	return (count);
-}
-
-/**
- * pointerAddress - prints address pointer in hexadecimal format
- * @ap: array argument
- * Return: Number of character printed
- */
-
-int pointerAddress(va_list ap)
-{
-	char null[6] = "(nil)";
-	int i;
-	int count = 0;
-	uintmax_t ptr;
-
-	ptr = va_arg(ap, uintmax_t);
-
-	if (ptr == '\0')
-	{
-		for (i = 0; i < 6; i++)
-		{
-			_putchar(null[i]);
-			count++;
-		}
-	}
-	else
-	{
-		_putchar(0 + '0');
-		_putchar('x');
-		count = count + hexa(ptr, 97);
-		count += 2;
-	}
-
-	return (count);
-}
-
-/**
- * character - prints character to the screen
- * @ap: array argument
- * Return: Number of character printed
- */
-
-int character(va_list ap)
-{
-	int count = 0;
-
-	_putchar(va_arg(ap, int));
-	count++;
-
 	return (count);
 }
