@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	int i, j;
 	char firstArg = NULL;
 	uintmax_t widthSize = -1;
-	uintmax_t precisionNmber = -1;
+	uintmax_t precisionNumber = -1;
 	int count = 0;
 	va_list arglist;
 	char formatSpecifier[8] = {'u', 'i', 'x', 'X', 'o', 'd', 'b'};
@@ -46,8 +46,8 @@ int _printf(const char *format, ...)
 					case customSpecifier[j]:
 						count += custom_specifier(format[i], format[++i], arglist);
 						break;
-					case format[i] > 48 && format[i] < 58:
-					case format[i] == '.':
+					case > 48 && < 58:
+					case '.':
 						for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 						{
 							if (format[i] == '.')
