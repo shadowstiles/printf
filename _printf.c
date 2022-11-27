@@ -13,7 +13,10 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, j;
+	char firstArg = NULL;
+	uintmax_t widthSize = -1;
+	uintmax_t precisionNmber = -1;
 	int count = 0;
 	va_list arglist;
 	char formatSpecifier[8] = {'u', 'i', 'x', 'X', 'o', 'd', 'b'};
@@ -29,31 +32,38 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			for (j = 0; j < 8; j++)
 			{
-				switch (format[i + 1])
+				switch (format[i])
 				{
 					case formatSpecifier[j]:
-						count += specifier(format[i + 1], arglist);
+						count += specifier(format[i], arglist);
 						break;
 					case formatSpecifier2[j]:
-						count += specifier2(format[i + 1], arglist);
+						count += specifier2(format[i], arglist);
 						break;
 					case customSpecifier[j]:
-						count += custom_specifier(format[i + 1], format[i + 2], arglist);
+						count += custom_specifier(format[i], format[++i], arglist);
 						break;
 					default:
-						for (k = i; format[k + 1] > 48 && format[k + 1] < 58; k++)
+						for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 						{
-							if (result < 0)
-								result = format[k + 1];
+							if (format[i] == '.')
+							{
+								firstArg = '.';
+								precisionNumber = format[++i];
+							}
 							else
-								result = (result * 10) + format[k + 1];
-						
-				else
-				{
-
-					count += other_specifier(
+								precisionNumber = (precisionNumber * 10) + format[i];
+							
+							if (widthSize < 0 && firstArg != '.')
+								widthSize = format[i];
+							else if (firstArg != '.')
+								widthSize = (widthSize * 10) + format[i];
+						}
+						count += other_specifier(firstArg, widthSize, precisionNumber, format[++i]);
+				}
 			}
 			i++;
 		}
