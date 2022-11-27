@@ -46,7 +46,8 @@ int _printf(const char *format, ...)
 					case customSpecifier[j]:
 						count += custom_specifier(format[i], format[++i], arglist);
 						break;
-					default:
+					case format[i] > 48 && format[i] < 58:
+					case format[i] == '.':
 						for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 						{
 							if (format[i] == '.')
@@ -63,6 +64,10 @@ int _printf(const char *format, ...)
 								widthSize = (widthSize * 10) + format[i];
 						}
 						count += other_specifier(firstArg, widthSize, precisionNumber, format[++i]);
+					default:
+						_putchar('%');
+						_putchar(format[i]);
+						count += 2;
 				}
 			}
 			i++;
