@@ -25,6 +25,6 @@ int character(va_list ap);
 int non_custom(char c, va_list ap, char next);
 int parser(char c, va_list ap, char next);
 int reverseString(va_list ap);
-int rot13(va_list ap)
+int rot13(va_list ap);
 
 #endif

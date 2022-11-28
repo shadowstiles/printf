@@ -15,7 +15,6 @@ int parser(char c, va_list ap, char next)
 {
 	int j;
 	int count = 0;
-	
 
 	for (j = 0; j < 8; j++)
     {
@@ -42,7 +41,7 @@ int non_custom(char c, va_list ap, char next)
     char arg = NULL;
 	uintmax_t width = 1;
 	uintmax_t precision = 1;
-    
+
     if (c == '.')
 	{
 		arg = '.';
