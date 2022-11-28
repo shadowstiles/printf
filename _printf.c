@@ -29,13 +29,13 @@ int _printf(const char *format, ...)
 			i++;
 			if ((format[i] > 48 && format[i] < 58) || format[i] == '.')
             	for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
-                	non_custom(format[i], ap, format[++i]);
-
-			parser(format[i], arglist, format[i + 1]);
+                	count += non_custom(format[i], arglist, format[++i]);
 
 			for (j = 0; j < 8; j++)
 				if (c == customSpecifier[j])
 					i++;
+
+			count += parser(format[i], arglist, format[i + 1]);
 			i++;
 		}
 		else

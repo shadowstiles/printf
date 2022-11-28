@@ -50,10 +50,10 @@ int non_custom(char c, va_list ap, char next)
     else
 		precision = (precision * 10) + c;
 							
-	if (widthSize < 0 && arg != '.')
-        widthSize = c;
+	if (width < 0 && arg != '.')
+        width = c;
 	else if (arg != '.')
-		widthSize = (widthSize * 10) + c;
+		width = (width * 10) + c;
 
     count += other_specifier(arg, width, precision, next, ap);
 
