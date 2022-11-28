@@ -4,7 +4,7 @@
 #include <inttypes.h>
 
 char formatSpecifier[] = {'u', 'i', 'x', 'X', 'o', 'd', 'b'};
-char formatSpecifier2[] = {'s', 'S', 'c', 'r', 'R', 'p', '%'}
+char formatSpecifier2[] = {'s', 'S', 'c', 'r', 'R', 'p', '%'};
 char customSpecifier[] = {'+', '-', ' ', '0', 'l', 'h', '#'};
 
 int _printf(const char *format, ...);
