@@ -28,11 +28,16 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if ((format[i] > 48 && format[i] < 58) || format[i] == '.')
+			{
             	for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
-                	count += non_custom(format[i], arglist, format[++i]);
+				{
+                	count += non_custom(format[i], arglist, format[i + 1]);
+					i++;
+				}
+			}
 
 			for (j = 0; j < 8; j++)
-				if (c == customSpecifier[j])
+				if (format[i] == customSpecifier[j])
 					i++;
 
 			count += parser(format[i], arglist, format[i + 1]);

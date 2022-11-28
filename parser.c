@@ -39,8 +39,8 @@ int non_custom(char c, va_list ap, char next)
 {
     int count = 0;
     char arg = NULL;
-	uintmax_t width = 1;
-	uintmax_t precision = 1;
+	long width = -1;
+	long precision = -1;
 
     if (c == '.')
 	{
