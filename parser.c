@@ -38,7 +38,7 @@ int parser(char c, va_list ap, char next)
 int non_custom(char c, va_list ap, char next)
 {
     int count = 0;
-    char arg = NULL;
+    char arg;
 	long width = -1;
 	long precision = -1;
 
