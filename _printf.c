@@ -29,9 +29,9 @@ int _printf(const char *format, ...)
 			i++;
 			if ((format[i] > 48 && format[i] < 58) || format[i] == '.')
 			{
-            	for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
+				for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 				{
-                	count += non_custom(format[i], arglist, format[i + 1]);
+					count += non_custom(format[i], arglist, format[i + 1]);
 					i++;
 				}
 			}
