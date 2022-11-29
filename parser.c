@@ -19,11 +19,20 @@ int parser(char c, va_list ap, char next)
 	for (j = 0; j < 8; j++)
 	{
 		if (c == formatSpecifier[j])
+		{
 			count += specifier(c, ap);
+			return (count);
+		}
 		if (c == formatSpecifier2[j])
+		{
 			count += specifier2(c, ap);
+			return (count);
+		}
 		if (c == customSpecifier[j])
+		{
 			count += custom_specifier(c, next, ap);
+			return (count);
+		}
 		else
 		{
 			_putchar('%');
@@ -34,6 +43,14 @@ int parser(char c, va_list ap, char next)
 	
 	return (count);
 }
+
+/**
+ * non_custom - A function to print to the standard output
+ * @c: character
+ * @ap: va_list
+ * @next: next character
+ * Return: Number of cgaracter printed
+ */
 
 int non_custom(char c, va_list ap, char next)
 {
@@ -50,7 +67,7 @@ int non_custom(char c, va_list ap, char next)
 	}
 	else
 		precision = (precision * 10) + c;
-	
+
 	if (width < 0 && arg != '.')
 		width = c;
 	else if (arg != '.')
