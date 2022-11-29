@@ -33,14 +33,12 @@ int parser(char c, va_list ap, char next)
 			count += custom_specifier(c, next, ap);
 			return (count);
 		}
-		else
-		{
-			_putchar('%');
-			_putchar(c);
-			count += 2;
-		}
 	}
-	
+
+	_putchar('%');
+	_putchar(c);
+	count += 2;
+
 	return (count);
 }
 
