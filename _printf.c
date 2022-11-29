@@ -35,12 +35,16 @@ int _printf(const char *format, ...)
 					i++;
 				}
 			}
-
-			for (j = 0; j < 8; j++)
-				if (format[i] == customSpecifier[j])
+			else if (format[i] == customSpecifier[j])
+			{
+				for (j = 0; j < 8; j++)
 					i++;
+			}
+			else 
+			{
+				count += parser(format[i], arglist, format[i + 1]);
+			}
 
-			count += parser(format[i], arglist, format[i + 1]);
 			i++;
 		}
 		else
