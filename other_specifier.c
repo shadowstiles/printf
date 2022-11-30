@@ -8,7 +8,6 @@
  * @ap: va_list
  * @first: first character
  * @width: Width size to add to printf
- * @precision: precision size
  * Return: Number of character printed
  */
 
@@ -16,7 +15,7 @@ int other_specifier(char first, long width, char c, va_list ap)
 {
 	int count = 0;
 	int i;
-	
+
 	if (first == '.')
 		count = 0;
 
@@ -30,6 +29,6 @@ int other_specifier(char first, long width, char c, va_list ap)
 
 		count += specifier(c, ap, 1);
 	}
-	
+
 	return (count);
 }

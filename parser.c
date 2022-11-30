@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * paser - A function to print to the standard output
+ * parser - A function to print to the standard output
  * @c: character
  * @ap: va_list
+ * @next: next character
  * Return: 0 || 1
  */
 
@@ -56,8 +57,7 @@ int non_custom(char c, char next, va_list ap)
 	char arg;
 	long width = -1;
 	long precision = -1;
-	
-	
+
 	if (c == '.')
 	{
 		arg = '.';
@@ -71,8 +71,8 @@ int non_custom(char c, char next, va_list ap)
 		width = c;
 	else if (arg != '.')
 		width = (width * 10) + c;
-	
+
 	count += other_specifier(arg, width, next, ap);
-	
+
 	return (count);
 }
