@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * specifier - ROT13 encoding, a simple letter substitution cipher
+ * rot13 - ROT13 encoding, a simple letter substitution cipher
  * @ap: array argument
  * Return: Number of printed character
  */
