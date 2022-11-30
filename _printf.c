@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 					i++;
 				k++;
 			}
-			else 
+			else
 			{
 				count += parser(format[i], arglist, format[i + 1]);
 			}
