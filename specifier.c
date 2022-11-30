@@ -9,30 +9,35 @@
  * Return: Nothing
  */
 
-int specifier(char c, va_list ap)
+int specifier(char c, va_list ap, int type)
 {
 	int count = 0;
+	long size = va_arg(ap, long);
+	int shortSize = va_arg(ap, int);
 
 	switch (c)
 	{
 		case 'd':
 		case 'i':
-			count = count + number(va_arg(ap, long));
+			if (type == 1)
+				count += number(size);
+			else if (type == 2)
+				count += number(shortSize);
 			break;
 		case 'b':
-			count = count + binary(va_arg(ap, uintmax_t));
+			count += binary(va_arg(ap, uintmax_t));
 			break;
 		case 'o':
-			count = count + octal(va_arg(ap, uintmax_t));
+			count += octal(va_arg(ap, uintmax_t));
 			break;
 		case 'x':
-			count = count + hexa(va_arg(ap, uintmax_t), 97);
+			count += hexa(va_arg(ap, uintmax_t), 97);
 			break;
 		case 'X':
-			count = count + hexa(va_arg(ap, uintmax_t), 65);
+			count += hexa(va_arg(ap, uintmax_t), 65);
 			break;
 		case 'u':
-			count = count + unsignedNumber(va_arg(ap, unsigned int));
+			count += unsignedNumber(va_arg(ap, unsigned int));
 			break;
 		default:
 			_putchar('%');

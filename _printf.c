@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	int i, j;
 	int count = 0;
 	va_list arglist;
+	char customSpecifier[] = {'+', '-', ' ', '0', 'l', 'h', '#'};
 
 	if (format == NULL)
 		return (-1);
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 			{
 				for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 				{
-					count += non_custom(format[i], arglist, format[i + 1]);
+					count += non_custom(format[i], format[i + 1], arglist);
 					i++;
 				}
 			}
@@ -47,11 +48,8 @@ int _printf(const char *format, ...)
 
 			i++;
 		}
-		else
-		{
-			_putchar(format[i]);
-			count++;
-		}
+		_putchar(format[i]);
+		count++;
 	}
 	va_end(arglist);
 
