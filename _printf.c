@@ -39,12 +39,12 @@ int _printf(const char *format, ...)
 			{
 				for (j = 0; j < 8; j++)
 					i++;
+				k++;
 			}
 			else
 			{
 				count += parser(format[i], arglist, format[i + 1]);
 			}
-
 			i++;
 		}
 		_putchar(format[i]);
