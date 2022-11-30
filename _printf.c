@@ -14,6 +14,7 @@
 int _printf(const char *format, ...)
 {
 	int i, j;
+	int k = 0;
 	int count = 0;
 	va_list arglist;
 	char customSpecifier[] = {'+', '-', ' ', '0', 'l', 'h', '#'};
@@ -36,7 +37,7 @@ int _printf(const char *format, ...)
 					i++;
 				}
 			}
-			else if (format[i] == customSpecifier[j])
+			else if (format[i] == customSpecifier[k])
 			{
 				for (j = 0; j < 8; j++)
 					i++;
