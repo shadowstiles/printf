@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * specifier - Reverser a string
+ * reverseString - Reverser a string
  * @ap: array argument
  * Return: Number of printed character
  */
