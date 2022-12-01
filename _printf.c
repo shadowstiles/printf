@@ -37,20 +37,20 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == customSpecifier[k])
 			{
-				for (j = 0; j < 8; j++)
-					i++;
+				i++;
 				k++;
 			}
 			else
 			{
 				count += parser(format[i], arglist, format[i + 1]);
 			}
-			i++;
 		}
-		_putchar(format[i]);
-		count++;
+		else
+		{
+			_putchar(format[i]);
+			count++;
+		}
 	}
 	va_end(arglist);
-
 	return (count);
 }
