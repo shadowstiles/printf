@@ -8,12 +8,12 @@
  * _printf - A function to print to the standard output
  * @format: character string
  * @...: other variable
- * Return: 0 || 1
+ * Return: Number of character printed
  */
 
 int _printf(const char *format, ...)
 {
-	int i, j;
+	int i;
 	int k = 0;
 	int count = 0;
 	va_list arglist;
