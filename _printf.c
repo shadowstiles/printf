@@ -26,9 +26,9 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
 			if (format[i + 1] == '\0')
 				return (-1);
+			i++;
 			if ((format[i] > 48 && format[i] < 58) || format[i] == '.')
 			{
 				for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
