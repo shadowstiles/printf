@@ -27,23 +27,21 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i + 1] == '\0)
+			    return (-1);
 			if ((format[i] > 48 && format[i] < 58) || format[i] == '.')
 			{
 				for (; (format[i] > 48 && format[i] < 58) || format[i] == '.'; i++)
 				{
 					count += non_custom(format[i], format[i + 1], arglist);
-					i++;
-				}
+					i++; }
 			}
 			else if (format[i] == customSpecifier[k])
 			{
 				i++;
-				k++;
-			}
+				k++; }
 			else
-			{
 				count += parser(format[i], arglist, format[i + 1]);
-			}
 		}
 		else
 		{
