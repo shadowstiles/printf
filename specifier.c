@@ -6,6 +6,7 @@
  * specifier - printf function specifiers
  * @c: character given
  * @ap: array argument
+ * @type: type of integer
  * Return: Nothing
  */
 
