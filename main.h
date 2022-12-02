@@ -6,13 +6,13 @@
 int _printf(const char *format, ...);
 int _putchar(char c);
 int number(long n);
-int hexa(uintmax_t n, int asc);
+int hexa(unsigned int n, int asc);
 int specifier(char c, va_list ap, int type);
 int specifier2(char c, va_list ap);
 int custom_specifier(char c, char next, va_list ap);
 int other_specifier(char first, long width, char c, va_list ap);
 int binary(unsigned int n);
-int octal(uintmax_t n);
+int octal(unsigned int n);
 int handleString(va_list ap);
 int unsignedNumber(unsigned int n);
 int specialString(va_list ap);
