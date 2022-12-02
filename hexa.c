@@ -7,7 +7,7 @@
  * Return: Number of characters printed
  */
 
-int hexa(uintmax_t n, int asc)
+int hexa(unsigned int n, int asc)
 {
 	int value;
 	int count = 0;
