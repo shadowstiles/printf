@@ -57,7 +57,7 @@ int pointerAddress(va_list ap)
 	int count = 0;
 	uintmax_t ptr;
 
-	ptr = va_arg(ap, uintmax_t);
+	ptr = va_arg(ap, unsigned int);
 
 	if (ptr == '\0')
 	{
@@ -71,7 +71,7 @@ int pointerAddress(va_list ap)
 	{
 		_putchar(0 + '0');
 		_putchar('x');
-		count = count + hexa((uintmax_t)ptr, 97);
+		count = count + hexa(ptr, 97);
 		count += 2;
 	}
 
