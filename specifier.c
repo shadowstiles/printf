@@ -25,13 +25,13 @@ int specifier(char c, va_list ap, int type)
 			count += binary(va_arg(ap, unsigned int));
 			break;
 		case 'o':
-			count += octal(va_arg(ap, uintmax_t));
+			count += octal(va_arg(ap, unsigned int));
 			break;
 		case 'x':
-			count += hexa(va_arg(ap, uintmax_t), 97);
+			count += hexa(va_arg(ap, unsigned int), 97);
 			break;
 		case 'X':
-			count += hexa(va_arg(ap, uintmax_t), 65);
+			count += hexa(va_arg(ap, unsigned int), 65);
 			break;
 		case 'u':
 			count += unsignedNumber(va_arg(ap, unsigned int));
