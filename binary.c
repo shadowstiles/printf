@@ -6,7 +6,7 @@
  * Return: binary number
  */
 
-int binary(uintmax_t n)
+int binary(unsigned int n)
 {
 	int count = 0;
 
