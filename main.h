@@ -5,7 +5,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int number(long n);
+int number(int n);
 int hexa(unsigned int n, int asc);
 int specifier(char c, va_list ap, int type);
 int specifier2(char c, va_list ap);
