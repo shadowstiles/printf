@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdlib.h>
 
 /**
  * specifier - printf function specifiers
@@ -13,17 +11,15 @@
 int specifier(char c, va_list ap, int type)
 {
 	int count = 0;
-	long size = va_arg(ap, long);
-	int shortSize = va_arg(ap, int);
 
 	switch (c)
 	{
 		case 'd':
 		case 'i':
 			if (type == 1)
-				count += number(size);
+				count += number(va_arg(ap, long));
 			else if (type == 2)
-				count += number(shortSize);
+				count += number(va_arg(ap, int));
 			break;
 		case 'b':
 			count += binary(va_arg(ap, uintmax_t));
