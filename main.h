@@ -11,7 +11,7 @@ int specifier(char c, va_list ap, int type);
 int specifier2(char c, va_list ap);
 int custom_specifier(char c, char next, va_list ap);
 int other_specifier(char first, long width, char c, va_list ap);
-int binary(uintmax_t n);
+int binary(unsigned int n);
 int octal(uintmax_t n);
 int handleString(va_list ap);
 int unsignedNumber(unsigned int n);
