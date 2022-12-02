@@ -6,7 +6,7 @@
  * Return: Number of cgaracter printed
  */
 
-int number(long n)
+int number(int n)
 {
 	int count = 0;
 
