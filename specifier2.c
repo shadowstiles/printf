@@ -71,7 +71,7 @@ int pointerAddress(va_list ap)
 	{
 		_putchar(0 + '0');
 		_putchar('x');
-		count = count + hexa(ptr, 97);
+		count = count + hexa((uintmax_t)ptr, 97);
 		count += 2;
 	}
 
