@@ -22,7 +22,7 @@ int specifier(char c, va_list ap, int type)
 				count += number(va_arg(ap, int));
 			break;
 		case 'b':
-			count += binary(va_arg(ap, uintmax_t));
+			count += binary(va_arg(ap, unsigned int));
 			break;
 		case 'o':
 			count += octal(va_arg(ap, uintmax_t));
